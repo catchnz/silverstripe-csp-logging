@@ -1,6 +1,6 @@
 {
 	"name": "camspiers/silverstripe-csp-logging",
-	"type": "silverstripe-module",
+	"type": "silverstripe-vendormodule",
 	"license": "MIT",
 	"description": "Logs CSP violations through a logger",
 	"authors": [{
