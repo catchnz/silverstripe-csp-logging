@@ -1,3 +1,9 @@
-Director:
+---
+Name: csproutes
+After:
+  - "#rootroutes"
+  - "#coreroutes"
+---
+SilverStripe\Control\Director:
   rules:
-    '/csp-report/': Camspiers\CSP\Controller
+    'csp-report': Camspiers\CSP\Controller
