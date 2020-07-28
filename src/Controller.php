@@ -2,7 +2,6 @@
 
 namespace Camspiers\CSP;
 
-use Psr\Log\LoggerInterface;
 use SilverStripe\Control\Controller as SilverStripeController;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\HTTPResponse;
@@ -14,18 +13,15 @@ use SilverStripe\Control\HTTPResponse;
 class Controller extends SilverStripeController
 {
     /**
-     * @var \Psr\Log\LoggerInterface
+     * This will be set automatically, as long as Controller is instantiated via Injector
+     *
+     * @var Logger
      */
-    protected $logger;
+    public $logger;
 
-    /**
-     * @param LoggerInterface $logger
-     */
-    public function __construct(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
-        parent::__construct();
-    }
+    private static $dependencies = [
+        'logger' => '%$' . Logger::class,
+    ];
 
     /**
      * @param HTTPRequest $request
